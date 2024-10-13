@@ -12,7 +12,7 @@ const loadallpet = () => {
         .then((data) => {
             //i have to remove class
              actvbuttonremove()
-            //color add korlam
+            
             const actvbutton = document.getElementById(`bt-'${id}'`)
             console.log(actvbutton)
             actvbutton.classList.add("change")
@@ -25,14 +25,13 @@ const loadallpet = () => {
 //for button color remove
  const actvbuttonremove = () =>{
     const buttons =document.getElementsByClassName("photoclass")   
-    for (let btn of buttons) {  
-        
+    for (let btn of buttons) {      
         btn.classList.remove("change")
     }
  }
-// Here i create a category nice 
-const displaydata = (data) => {
-    
+
+// Here i create a category which have button functionality nice 
+const displaydata = (data) => {   
     const categorycontain = document.getElementById("mainadopt")
     data.forEach((item) => {
         // console.log(item)
@@ -44,6 +43,7 @@ const displaydata = (data) => {
         categorycontain.appendChild(categorybutton)
     });
 }
+
 // here i load all photo
 const loadallpetphoto = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/pets')
@@ -51,6 +51,7 @@ const loadallpetphoto = () => {
         .then((data) => petdetails(data.pets))
         .catch((error) => console.log(error))
 }
+
 // Here we load image details
 const loadDetailsp = async(photoid) =>{
     const urr= `https://openapi.programming-hero.com/api/peddy/pet/${photoid}`
@@ -58,6 +59,7 @@ const loadDetailsp = async(photoid) =>{
     const data = await res.json()
     detailsfunct(data.petData)
 }
+
 // This is our modal section
 const detailsfunct = (photo) =>{
     console.log(photo)
@@ -65,7 +67,7 @@ const detailsfunct = (photo) =>{
     document.getElementById("showModal").click()
     modalcontent.innerHTML =`
          <figure>
-    <img class="w-full h-44 object-cover rounded-md"
+    <img class="w-full max-h-52 object-cover rounded-md"
       src="${photo.image} "
       alt="pets" />
   </figure>
@@ -80,14 +82,15 @@ const detailsfunct = (photo) =>{
   </div>
     `
 }
+
 //here i do the like functino event 
 const like= (like) =>{
-    
     const likebutton = document.getElementById("selectedpet")
     likebutton.innerHTML+=`  
      <img class="p-1 rounded-md border-1 border-gray-300" src="${like}" >
     `
 }
+
 // pet details display all photo
 const petdetails = (data) => {
     const mainpet = document.getElementById("mainpet")
@@ -131,8 +134,6 @@ const petdetails = (data) => {
         mainpet.appendChild(card)
     })
 }
-
-
 
 //spinner section
 const handlepet = () => {

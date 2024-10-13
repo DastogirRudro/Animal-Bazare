@@ -65,18 +65,18 @@ const detailsfunct = (photo) =>{
     document.getElementById("showModal").click()
     modalcontent.innerHTML =`
          <figure>
-    <img class="w-full h-36 object-cover rounded-md"
+    <img class="w-full h-44 object-cover rounded-md"
       src="${photo.image} "
       alt="pets" />
   </figure>
   <div class="card-body">
     <h2 class="card-title">${photo.pet_name}</h2>
-    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-regular fa-list"></i> Breed: ${photo.breed} </p>
-    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-regular fa-calendar"></i>Birth: ${photo.gender}</p>
-    <P class="font-bold text-[#131313B3]"><i class="mr-2 fa-solid fa-mercury"></i>Gender: ${photo.gender} </P>
-    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-solid fa-dollar-sign"></i>Price:${photo.price} </p>
-    <p class="font-extrabold text-xl my-1">Details Information</p>
-    <p class="font-bold text-[#494949b3]">Price:${photo.pet_details} </p> 
+    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-regular fa-list"></i> Breed: ${photo.breed? photo.breed :"Not Available"} </p>
+    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-regular fa-calendar"></i>Birth: ${photo.date_of_birth? photo.date_of_birth:"Not Available"}</p>
+    <P class="font-bold text-[#131313B3]"><i class="mr-2 fa-solid fa-mercury"></i>Gender: ${photo.gender? photo.gender :"Not Available"} </P>
+    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-solid fa-dollar-sign"></i>Price:${photo.price? photo.price :"Not Available"} </p>
+    <p class="font-extrabold border-t-2 border-gray-200 my-1 py-2 text-xl">Details Information</p>
+    <p class="font-bold  text-[#494949b3]">Price:${photo.pet_details} </p> 
   </div>
     `
 }
@@ -85,7 +85,7 @@ const like= (like) =>{
     
     const likebutton = document.getElementById("selectedpet")
     likebutton.innerHTML+=`  
-     <img src="${like}" >
+     <img class="p-1 rounded-md border-1 border-gray-300" src="${like}" >
     `
 }
 // pet details display all photo
@@ -106,7 +106,7 @@ const petdetails = (data) => {
     }
 
     data.forEach((item) => {
-       
+        // console.log(item)
         const card = document.createElement("div")
         card.classList="card card-compact p-2 border-2 border-gray-200"
         card.innerHTML = `
@@ -117,10 +117,10 @@ const petdetails = (data) => {
   </figure>
   <div class="card-body">
     <h2 class="card-title">${item.pet_name}</h2>
-    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-regular fa-list"></i> Breed: ${item.breed} </p>
-    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-regular fa-calendar"></i>Birth: ${item.gender}</p>
-    <P class="font-bold text-[#131313B3]"><i class="mr-2 fa-solid fa-mercury"></i>Gender: ${item.gender} </P>
-    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-solid fa-dollar-sign"></i>Price:${item.price} </p>
+    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-regular fa-list"></i> Breed: ${item.breed? item.breed : "Not Available"} </p>
+    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-regular fa-calendar"></i>Birth: ${item.date_of_birth? item.date_of_birth : "Not Available"}</p>
+    <P class="font-bold text-[#131313B3]"><i class="mr-2 fa-solid fa-mercury"></i>Gender: ${item.gender? item.gender : "Not Available"} </P>
+    <p class="font-bold text-[#131313B3]"><i class="mr-2 fa-solid fa-dollar-sign"></i>Price:${item.price? item.price : "Not Available"} </p>
    <div class="flex justify-between items-center">
        <div class="border-2 rounded-md"> <button onclick="like('${item.image}')"><i class="p-2 px-3 fa-regular fa-thumbs-up"></i></button> </div>
        <div> <button onclick= "adopt(${item.petId})"class="btn px-2 bg-white border-1 rounded-md text-[#0E7A81] px">Adopt</button></div>

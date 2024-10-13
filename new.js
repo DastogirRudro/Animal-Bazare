@@ -59,7 +59,7 @@ const loadDetailsp = async(photoid) =>{
     const data = await res.json()
     detailsfunct(data.petData)
 }
-
+// modal
 // This is our modal section
 const detailsfunct = (photo) =>{
     console.log(photo)

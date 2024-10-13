@@ -1,14 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet shop</title>
+    <script src="https://kit.fontawesome.com/fa7a5cd4a5.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Spinner styles */
+        #spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(43, 82, 113, 0.1);
+            border-top: 4px solid #2c6787;
+            border-radius: 60%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        /* Spinner animation */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(180deg);
+            }
+        }
+
+        .change{
+            background-color: gray;
+            color: black;
+        }
+    </style>
+
 </head>
-<body>
-    <h1>how are you man</h1>
+<body style="font-family: lato;">
+    <header class="mb-10">
+        <div class="flex justify-between items-center w-11/12 mx-auto my-5 py-2 bg-[#FFFFFF] ">
+            <div class="flex justify-between items-center sm:gap-1 gap-2">
+                <img src="./logo.webp" alt="">
+                <p class="text-lg font-bold">Peddy</p>
+            </div>
+            <div>
+                <ul class="flex justify-between items-center gap-2 lg:gap-6 md:gap-4">
+                    <li class="text-slate-500">Home</li>
+                    <li class="text-slate-500">Shop</li>
+                    <li class="text-slate-500">Contact</li>
+                </ul>
+            </div>
+            <div class="border-2 border-gray-300 rounded-full ">
+                <i class="p-2 fa-regular fa-user"></i>
+            </div>
+        </div>
+
+<!-- countdown modla -->
+
+
+<!-- section start from here -->
+
+        <section>
+            <div class="max-w-[752px] matext-center flex flex-col justify-between items-center gap-5 mx-auto my-8">
+                <div>
+                    <p class="text-[#13131399]">Bringing Families Together 🔥</p>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-6xl text-center text-black">Your Path to Adoption Starts Here</h1>
+                </div>
+                <div>
+                    <p class="text-center text-[#131313]">It is a long established fact that a reader will be distracted
+                        by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is
+                        that it has a.</p>
+                </div>
+                <div>
+                    <a href="#main-tab"><button class="btn bg-[#0E7A81] text-[#FFFFFF] font-semibold text-sm">view
+                            more</button></a>
+                </div>
+                <div class="max-w-[420px] md:max-w-[580px] lg:max-w-[580px]">
+                    <img src="./pet.webp" alt="">
+                </div>
+                <div class="text-center">
+                    <h1 class="text-[#131313] font-extrabold text-3xl my-2">Adopt Your Best Friend</h1>
+                    <p class="text-[#131313B3] my-1">It is a long established fact that a reader will be distracted by
+                        the readable content of a page when looking at its layout. The point of using Lorem Ipsum is
+                        that it has a.</p>
+                </div>
+            </div>
+        </section>
+    </header>
+    <div id="spinner">
+
+    </div>
+    <section id="main-tab">
+        <div>
+            <div id="mainadopt" class="w-11/12 mx-auto my-10 flex justify-between items-center">
+
+            </div>
+        </div>
+    </section>
+    <div class="my-4 flex justify-between items-center w-11/12 mx-auto">
+        <div>
+            <p class="font-extrabold text-2xl text-black">Best Deal For you</p>
+        </div>
+        <div>
+            <button id="sorting" class="btn bg bg-[#0E7A81] px-6 rounded-lg py-1 text-white font-bold">Sort by Price</button>
+        </div>
+    </div>
+    <section>
+        <div class="flex justify-between gap-1  my-4 h-full">
+            <div id="mainpet" class="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-1 w-3/4 border-1 border-gray-400">
+
+            </div>
+            <div id="selectedpet" class="grid gap-2 grid-cols-2 items-start content-start border-2 w-1/4 border-gray-300 p-2 mt-3">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- This is our modal section -->
+    <!-- Open the modal using ID.showModal() method -->
+<button id="showModal" class="btn hidden" onclick="customModal.showModal()">open modal</button>
+<dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+       <div id="modal-content">
+
+       </div>
+        
+        <div class="modal-action flex w-full items-center">
+            <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="mr-10 text-[#0E7A81] btn px-16 bg-[#0E7A811A] font-bold text-xl bg-green-500">Cancel</button>
+            </form>
+        </div>
+    </div>
+</dialog>
+
+
+   <!-- This is footer section here -->
+    <footer class="bg-black">
+        <div class="w-11/12 mx-auto py-16 flex justify-between items-center flex-col md:flex-row lg:flex-row gap-8">
+            <div class="sm:grid items-center">
+                <div class="flex items-center sm:gap-1 my-2 mb-3">
+                    <img src="./logo.webp" alt="">
+                    <p class="text-lg text-white font-bold mx-2">Peddy</p>
+                </div>
+                <div class="flex gap-2 flex-col">
+                    <p class="text-[#FFFFFFE6]">Location: av. Washington 165, NY CA 54003</p>
+                    <p class="text-[#FFFFFFE6]">Phone: +31 85 964 47 25</p>
+                    <p class="text-[#FFFFFFE6]"> Email: info@yourdomain.com</p>
+                    <p class="text-[#FFFFFFE6]">Openings hours: 9.00 AM - 5.00 PM</p>
+                </div>
+                <div class="flex gap-5 my-3">
+                    <i class="text-blue-700 fa-brands fa-facebook"></i>
+                    <i class="text-white fa-brands fa-x-twitter"></i>
+                    <i class="text-red-800 fa-brands fa-youtube"></i>
+                    <i class="text-[#8C3AAA00 #8C3AAAFF] fa-brands fa-instagram"></i>
+                </div>
+            </div>
+            <div>
+                <div class="mb-5">
+                    <p class="text-[#FFFFFFE6] font-bold">Useful Links</p>
+                </div>
+                <div>
+                    <ul>
+                        <li class="text-[#FFFFFF99] my-1">Home</li>
+                        <li class="text-[#FFFFFF99] my-1">About Us</li>
+                        <li class="text-[#FFFFFF99] my-1">Animals</li>
+                        <li class="text-[#FFFFFF99] my-1">Foundation</li>
+                        <li class="text-[#FFFFFF99] my-1">Contact</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="mb-2">
+                    <p class="text-[#FFFFFFE6]">Drop a Message</p>
+                </div>
+                <input type="email" class="bg-[#FFFFFF0D] my-3 p-3 rounded-lg" name="" id=""
+                    placeholder="Enter your email">
+                <div class="my-2 ">
+                    <button class="btn text-white border-0  bg-[#0E7A81] w-full font-extrabold">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 
@@ -16,4 +199,5 @@
 
     <script src="new.js"></script>
 </body>
+
 </html>

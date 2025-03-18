@@ -10,5 +10,6 @@ fetch API also used DOM manipulation technique.Here i also set a loading button 
 - It have active button header and a beautiful footer section. this web will helpful for a cat woner who want to adopt his cat.
 ## ES6 Features
  IT have many ES6 feature. error handling fetch data. Also used arrow function and foreach() function async await functionality and many more
-## Live LInk
-  https://silly-daifuku-49b1d6.netlify.app/
+# Live Link: 
+ https://dom-more-api-six.netlify.app/
+
